@@ -22,3 +22,15 @@ const str = password.trim();
 var isValid = true;
 let messages = [];
 messages.push();
+
+if (username.length<3) {
+    return !isValid
+}else {
+    messages = isValid
+}
+
+if (password.length>8) {
+    return isValid
+}else {
+    messages = !isValid
+}
