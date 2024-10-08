@@ -20,4 +20,5 @@ const string = email.trim();
 const str = password.trim();
 
 var isValid = true;
-let messages = []
+let messages = [];
+messages.push();
