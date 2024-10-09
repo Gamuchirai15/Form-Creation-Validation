@@ -21,19 +21,28 @@ const str = password.trim();
 
 var isValid = true;
 let messages = [];
-messages.push();
 
 if (username.length<3) {
-    return !isValid
-}else {
-    messages = isValid
-};
+    isValid = false;
+    messages.push("Username must be at least 3 characters long.");
+}
+  
+if (!email.includes('@') || !email.includes('.')) {
+    isValid = false;
+    messages.push("Email must include both '@' and '.' characters.");
+}
 
 if (password.length>8) {
-    return isValid
-}else {
-    messages = !isValid
-};
+    isValid = false;
+    messages.push("Password must be at least 8 characters long.");
+}
+
+if (isValid) {
+    console.log("Validation successful!");
+} else {
+    console.log("Validation failed with the following messages:");
+    messages.forEach(message => console.log(message));
+}
 
 function displayFeedback(isValid, messages) {
     const feedbackDiv = document.getElementById('feedbackDiv');
