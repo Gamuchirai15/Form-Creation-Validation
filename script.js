@@ -35,10 +35,16 @@ if (password.length>8) {
     messages = !isValid
 };
 
-const btn = document.querySelector(".button");
-const feedback = document.querySelector(".feedback-container");
-btn.addEventListener("click", () => {
-    feedback.innerHTML = '<h1>Thank you for your feedback</h1>';
-});
+function displayFeedback(isValid, messages) {
+    const feedbackDiv = document.getElementById('feedbackDiv');
+    feedbackDiv.style.display = 'block';
 
-feedbackDiv.setAttribute("style", "style.display=block");
+    if (isValid) {
+        feedbackDiv.textContent = 'Registration successful!';
+        feedbackDiv.style.color = '#28a745';
+    } else {
+        feedbackDiv.innerHTML = messages.join('<br>');
+        feedbackDiv.style.color = '#dc3545';
+    }
+
+}
